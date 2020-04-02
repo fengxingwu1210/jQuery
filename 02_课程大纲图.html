@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 500px;
+            border: 1px solid #000;
+            margin: 40px auto;
+        }
+
+        .box h3 {
+            line-height: 30px;
+            border: 1px solid #000;
+            cursor: pointer;
+            background-color: skyblue;
+        }
+
+        .box .inn {
+            display: none;
+            width: 500px;
+            height: 50px;
+        }
+
+        .box .inn.no0 {
+            display: block;
+        }
+        .box .inn1{
+            float: left;
+        }
+        .box .inn2{
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h3>哈哈哈</h3>
+        <div class="inn no0">
+            <div class="inn1"> 
+                <span>A</span>
+                <span>B</span>
+                <span>C</span>
+            </div>
+            <div class="inn2">
+               <div>aaaaaa</div>
+               <div>bbbbbb</div>
+               <div>cccccc</div>
+            </div>
+        </div>
+        <h3>哈哈哈</h3>
+        <div class="inn">
+            <div class="inn1">
+                <span>A</span>
+                <span>B</span>
+                <span>C</span>
+            </div>
+            <div class="inn2">
+               <div>aaaaaa</div>
+               <div>bbbbbb</div>
+               <div>cccccc</div>
+            </div>
+        </div>
+        <h3>哈哈哈</h3>
+        <div class="inn">
+            <div class="inn1">
+                <span>A</span>
+                <span>B</span>
+                <span>C</span>
+            </div>
+            <div class="inn2">
+               <div>aaaaaa</div>
+               <div>bbbbbb</div>
+               <div>cccccc</div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('.box h3').click(function () {
+            // 判断下一个兄弟是否可见
+            // 如果下一个兄弟不可见
+            if (!$(this).next().is(':visible')) {
+                // 让你点击的这个h3下一个兄弟.inn展开
+                // 让所有的inn（包括它自己的下一个兄弟)都合起来
+                $('.inn').slideUp();
+                // next就是下一个兄弟，slideDown就是展开，300是毫秒数
+                $(this).next().slideDown(300);
+            } else {
+                // 否则就合起来，slideUp就是合起来，300是毫秒数
+                $(this).next().slideUp(300);
+            }
+        });
+    </script>
+</body>
+
+</html>
